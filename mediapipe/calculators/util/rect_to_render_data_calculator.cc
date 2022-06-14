@@ -159,16 +159,16 @@ absl::Status RectToRenderDataCalculator::Process(CalculatorContext* cc) {
       !cc->Inputs().Tag(kNormRectTag).IsEmpty()) {
     const auto& rect = cc->Inputs().Tag(kNormRectTag).Get<NormalizedRect>();
     auto* rectangle = NewRect(options_, render_data.get());
-    SetRect(/*normalized=*/true, rect.x_center() - rect.width() / 2.f,
-            rect.y_center() - rect.height() / 2.f, rect.width(), rect.height(),
-            rect.rotation(), rectangle);
+    //SetRect(/*normalized=*/true, rect.x_center() - rect.width() / 2.f,
+         //   rect.y_center() - rect.height() / 2.f, rect.width(), rect.height(),
+         //   rect.rotation(), rectangle);
   }
   if (cc->Inputs().HasTag(kRectTag) && !cc->Inputs().Tag(kRectTag).IsEmpty()) {
     const auto& rect = cc->Inputs().Tag(kRectTag).Get<Rect>();
     auto* rectangle = NewRect(options_, render_data.get());
-    SetRect(/*normalized=*/false, rect.x_center() - rect.width() / 2.f,
-            rect.y_center() - rect.height() / 2.f, rect.width(), rect.height(),
-            rect.rotation(), rectangle);
+    //SetRect(/*normalized=*/false, rect.x_center() - rect.width() / 2.f,
+         //   rect.y_center() - rect.height() / 2.f, rect.width(), rect.height(),
+         //   rect.rotation(), rectangle);
   }
   if (cc->Inputs().HasTag(kNormRectsTag) &&
       !cc->Inputs().Tag(kNormRectsTag).IsEmpty()) {
@@ -176,9 +176,9 @@ absl::Status RectToRenderDataCalculator::Process(CalculatorContext* cc) {
         cc->Inputs().Tag(kNormRectsTag).Get<std::vector<NormalizedRect>>();
     for (auto& rect : rects) {
       auto* rectangle = NewRect(options_, render_data.get());
-      SetRect(/*normalized=*/true, rect.x_center() - rect.width() / 2.f,
-              rect.y_center() - rect.height() / 2.f, rect.width(),
-              rect.height(), rect.rotation(), rectangle);
+     // SetRect(/*normalized=*/true, rect.x_center() - rect.width() / 2.f,
+         //     rect.y_center() - rect.height() / 2.f, rect.width(),
+           //   rect.height(), rect.rotation(), rectangle);
     }
   }
   if (cc->Inputs().HasTag(kRectsTag) &&
@@ -186,9 +186,9 @@ absl::Status RectToRenderDataCalculator::Process(CalculatorContext* cc) {
     const auto& rects = cc->Inputs().Tag(kRectsTag).Get<std::vector<Rect>>();
     for (auto& rect : rects) {
       auto* rectangle = NewRect(options_, render_data.get());
-      SetRect(/*normalized=*/false, rect.x_center() - rect.width() / 2.f,
-              rect.y_center() - rect.height() / 2.f, rect.width(),
-              rect.height(), rect.rotation(), rectangle);
+      //SetRect(/*normalized=*/false, rect.x_center() - rect.width() / 2.f,
+       //       rect.y_center() - rect.height() / 2.f, rect.width(),
+           //   rect.height(), rect.rotation(), rectangle);
     }
   }
 

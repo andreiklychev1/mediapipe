@@ -174,8 +174,8 @@ absl::Status LabelsToRenderDataCalculator::Process(CalculatorContext* cc) {
     }
 
     auto* text = label_annotation->mutable_text();
-    std::string display_text = labels[i];
-    //std::string display_text = "";
+    //std::string display_text = labels[i];
+    std::string display_text = "";
     if (cc->Inputs().HasTag(kScoresTag) ||
         options_.display_classification_score()) {
       absl::StrAppend(&display_text, ":", scores[i]);
